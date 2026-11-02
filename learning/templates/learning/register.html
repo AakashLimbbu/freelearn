@@ -19,23 +19,23 @@
                 <h2 class="text-center mb-4">
                     Create FreeLearn Account
                 </h2>
-
-                <form>
-
+ 
+                <form method="POST">
+                    {% csrf_token %}
                     <div class="mb-3">
                         <label class="form-label">Full Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="full_name">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control">
+                        <input type="email" class="form-control" name="email">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Account Type</label>
 
-                        <select class="form-select">
+                        <select class="form-select" name="role">
                             <option>Student</option>
                             <option>Teacher</option>
                         </select>
@@ -43,7 +43,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="password">
                     </div>
 
                     <button class="btn btn-primary w-100">
