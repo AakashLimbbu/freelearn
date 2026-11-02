@@ -1,3 +1,4 @@
+from django.shortcuts import render, redirect
 from django.shortcuts import render
 
 def home(request):
@@ -21,6 +22,8 @@ def register_page(request):
             role=role,
             password=password
         )
+
+        return redirect('login')
 
     return render(request, 'learning/register.html')
 from .models import User
