@@ -16,6 +16,13 @@ def register_page(request):
         role = request.POST.get('role')
         password = request.POST.get('password')
 
+        if User.objects.filter(email=email).exists():
+            return render(
+                request,
+                'learning/register.html',
+                {'error': 'Email already registered'}
+            )
+
         User.objects.create(
             full_name=full_name,
             email=email,
@@ -23,7 +30,9 @@ def register_page(request):
             password=password
         )
 
-        return redirect('login')
+        return redirect('/login/')
 
     return render(request, 'learning/register.html')
+
+    
 from .models import User

@@ -19,6 +19,11 @@
                 <h2 class="text-center mb-4">
                     Create FreeLearn Account
                 </h2>
+                {% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
  
                 <form method="POST">
                     {% csrf_token %}
