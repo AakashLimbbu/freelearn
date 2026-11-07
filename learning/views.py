@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render
-
+def dashboard(request):
+    return render(request, 'learning/dashboard.html') 
 def home(request):
     return render(request, 'learning/home.html')
 
@@ -17,11 +18,7 @@ def login_page(request):
         ).first()
 
         if user:
-            return render(
-                request,
-                'learning/login.html',
-                {'success': 'Login Successful'}
-            )
+            return redirect('/dashboard/')
 
         return render(
             request,
@@ -57,6 +54,5 @@ def register_page(request):
         return redirect('/login/')
 
     return render(request, 'learning/register.html')
-
-    
+  
 from .models import User
