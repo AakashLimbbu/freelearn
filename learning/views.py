@@ -1,10 +1,22 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 def dashboard(request):
-    return render(request, 'learning/dashboard.html') 
+
+    name = request.session.get('user_name')
+    role = request.session.get('role')
+
+    context = {
+        'name': name,
+        'role': role
+    }
+
+    return render(
+        request,
+        'learning/dashboard.html',
+        context
+    )
 def home(request):
     return render(request, 'learning/home.html')
-
 def login_page(request):
 
     if request.method == "POST":
@@ -18,6 +30,11 @@ def login_page(request):
         ).first()
 
         if user:
+
+            request.session['user_id'] = user.id
+            request.session['user_name'] = user.full_name
+            request.session['role'] = user.role
+
             return redirect('/dashboard/')
 
         return render(
@@ -27,7 +44,6 @@ def login_page(request):
         )
 
     return render(request, 'learning/login.html')
-
 def register_page(request):
 
     if request.method == "POST":
