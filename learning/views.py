@@ -75,5 +75,39 @@ def register_page(request):
         return redirect('/login/')
 
     return render(request, 'learning/register.html')
-  
-from .models import User
+
+def logout_page(request):
+
+    request.session.flush()
+
+    return redirect('/')
+
+def upload_resource(request):
+
+    if not request.session.get('user_id'):
+        return redirect('/login/')
+    if request.session.get('role') != 'Teacher':
+        return redirect('/dashboard/')
+
+    if request.method == "POST":
+
+        title = request.POST.get('title')
+        subject = request.POST.get('subject')
+        description = request.POST.get('description')
+        file_link = request.POST.get('file_link')
+
+        Resource.objects.create(
+            title=title,
+            subject=subject,
+            description=description,
+            file_link=file_link,
+            uploaded_by=request.session.get('user_name')
+        )
+
+        return redirect('/dashboard/')
+
+    return render(
+        request,
+        'learning/upload_resource.html'
+    )
+from .models import User, Resource
