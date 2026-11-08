@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render
+
 def dashboard(request):
+
+    if not request.session.get('user_id'):
+        return redirect('/login/')
 
     name = request.session.get('user_name')
     role = request.session.get('role')
@@ -15,6 +19,7 @@ def dashboard(request):
         'learning/dashboard.html',
         context
     )
+
 def home(request):
     return render(request, 'learning/home.html')
 def login_page(request):
