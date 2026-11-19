@@ -17,6 +17,12 @@ urlpatterns = [
     views.upload_resource,
     name='upload-resource'
 ),
+    path(
+    'resources/',
+    views.resources,
+    name='resources'
+),
+
 
 ]
 

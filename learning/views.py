@@ -126,4 +126,17 @@ def my_resources(request):
             'resources': resources
         }
     )
+def resources(request):
+
+    resources = Resource.objects.filter(
+        status='approved'
+    )
+
+    return render(
+        request,
+        'learning/resources.html',
+        {
+            'resources': resources
+        }
+    )
 from .models import User, Resource
