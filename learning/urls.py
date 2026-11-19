@@ -8,9 +8,15 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.logout_page, name='logout'),
     path(
+    'my-resources/',
+    views.my_resources,
+    name='my-resources'
+),
+    path(
     'upload-resource/',
     views.upload_resource,
     name='upload-resource'
 ),
+
 ]
 

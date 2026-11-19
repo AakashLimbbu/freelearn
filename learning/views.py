@@ -110,4 +110,20 @@ def upload_resource(request):
         request,
         'learning/upload_resource.html'
     )
+def my_resources(request):
+
+    if not request.session.get('user_id'):
+        return redirect('/login/')
+
+    resources = Resource.objects.filter(
+        uploaded_by=request.session.get('user_name')
+    )
+
+    return render(
+        request,
+        'learning/my_resources.html',
+        {
+            'resources': resources
+        }
+    )
 from .models import User, Resource
