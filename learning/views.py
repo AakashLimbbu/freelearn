@@ -159,4 +159,13 @@ def approve_resource(request, resource_id):
     resource.save()
 
     return redirect('/admin-resources/')
+def reject_resource(request, resource_id):
+
+    resource = Resource.objects.get(id=resource_id)
+
+    resource.status = 'rejected'
+
+    resource.save()
+
+    return redirect('/admin-resources/')
 from .models import User, Resource

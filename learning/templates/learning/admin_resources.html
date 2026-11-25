@@ -31,12 +31,17 @@
             <td>{{ resource.status }}</td>
 
 <td>
+
     <a href="/approve-resource/{{ resource.id }}/"
-       class="btn btn-success">
-
+       class="btn btn-success btn-sm">
         Approve
-
     </a>
+
+    <a href="/reject-resource/{{ resource.id }}/"
+       class="btn btn-danger btn-sm">
+        Reject
+    </a>
+
 </td>
 
         </tr>

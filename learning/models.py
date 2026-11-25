@@ -17,9 +17,10 @@ class User(models.Model):
 class Resource(models.Model):
 
     STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('approved', 'Approved'),
-    ]
+    ('pending', 'Pending'),
+    ('approved', 'Approved'),
+    ('rejected', 'Rejected'),
+]
 
     title = models.CharField(max_length=200)
     subject = models.CharField(max_length=100)

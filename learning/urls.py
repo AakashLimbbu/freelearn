@@ -32,5 +32,10 @@ path(
     views.approve_resource,
     name='approve-resource'
 ),
+path(
+    'reject-resource/<int:resource_id>/',
+    views.reject_resource,
+    name='reject-resource'
+),
 ]
 
