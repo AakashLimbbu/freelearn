@@ -57,13 +57,19 @@
 
         <tr>
 
-            <td>{{ resource.title }}</td>
+            <td>
+
+    <a href="/resource/{{ resource.id }}/">
+
+        {{ resource.title }}
+
+    </a>
+
+</td>
 
             <td>{{ resource.subject }}</td>
 
             <td>{{ resource.description }}</td>
-
-            <td>{{ resource.category }}</td>
 
             <td>
                 <a href="{{ resource.file_link }}"
@@ -72,6 +78,9 @@
                     Open
                 </a>
             </td>
+            <td>{{ resource.category }}</td>
+
+            
 
         </tr>
 

@@ -184,4 +184,15 @@ def reject_resource(request, resource_id):
     resource.save()
 
     return redirect('/admin-resources/')
+def resource_detail(request, resource_id):
+
+    resource = Resource.objects.get(id=resource_id)
+
+    return render(
+        request,
+        'learning/resource_detail.html',
+        {
+            'resource': resource
+        }
+    )
 from .models import User, Resource

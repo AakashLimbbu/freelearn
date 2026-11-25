@@ -37,5 +37,10 @@ path(
     views.reject_resource,
     name='reject-resource'
 ),
+path(
+    'resource/<int:resource_id>/',
+    views.resource_detail,
+    name='resource-detail'
+),
 ]
 
