@@ -93,12 +93,14 @@ def upload_resource(request):
 
         title = request.POST.get('title')
         subject = request.POST.get('subject')
+        category = request.POST.get('category')
         description = request.POST.get('description')
         file_link = request.POST.get('file_link')
 
         Resource.objects.create(
             title=title,
             subject=subject,
+            category=category,
             description=description,
             file_link=file_link,
             uploaded_by=request.session.get('user_name')
@@ -130,20 +132,28 @@ def resources(request):
 
     search = request.GET.get('search')
 
+    category = request.GET.get('category')
+
     resources = Resource.objects.filter(
         status='approved'
     )
 
     if search:
-
         resources = resources.filter(
             title__icontains=search
+        )
+
+    if category:
+        resources = resources.filter(
+            category=category
         )
 
     return render(
         request,
         'learning/resources.html',
-        {'resources': resources}
+        {
+            'resources': resources
+        }
     )
 def admin_resources(request):
 

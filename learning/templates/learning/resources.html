@@ -16,6 +16,27 @@
         name="search"
         class="form-control"
         placeholder="Search resources...">
+    
+</form>
+    <form method="GET">
+
+    <select name="category" class="form-control mb-3">
+
+        <option value="">All Categories</option>
+
+        <option value="Programming">Programming</option>
+
+        <option value="Networking">Networking</option>
+
+        <option value="Database">Database</option>
+
+        <option value="Web Development">Web Development</option>
+
+    </select>
+
+    <button class="btn btn-primary">
+        Filter
+    </button>
 
 </form>
     <table class="table table-bordered mt-4">
@@ -26,6 +47,7 @@
                 <th>Subject</th>
                 <th>Description</th>
                 <th>File Link</th>
+                <th>Category</th>
             </tr>
         </thead>
 
@@ -40,6 +62,8 @@
             <td>{{ resource.subject }}</td>
 
             <td>{{ resource.description }}</td>
+
+            <td>{{ resource.category }}</td>
 
             <td>
                 <a href="{{ resource.file_link }}"
