@@ -195,4 +195,35 @@ def resource_detail(request, resource_id):
             'resource': resource
         }
     )
+def edit_resource(request, resource_id):
+
+    resource = Resource.objects.get(id=resource_id)
+
+    if request.method == "POST":
+
+        resource.title = request.POST.get('title')
+
+        resource.subject = request.POST.get('subject')
+
+        resource.description = request.POST.get('description')
+
+        resource.save()
+
+        return redirect('/my-resources/')
+
+    return render(
+        request,
+        'learning/edit_resource.html',
+        {
+            'resource': resource
+        }
+    )
+def delete_resource(request, resource_id):
+
+    resource = Resource.objects.get(id=resource_id)
+
+    resource.delete()
+
+    return redirect('/my-resources/')
+
 from .models import User, Resource

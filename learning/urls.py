@@ -42,5 +42,15 @@ path(
     views.resource_detail,
     name='resource-detail'
 ),
+path(
+    'edit-resource/<int:resource_id>/',
+    views.edit_resource,
+    name='edit-resource'
+),
+path(
+    'delete-resource/<int:resource_id>/',
+    views.delete_resource,
+    name='delete-resource'
+),
 ]
 

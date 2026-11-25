@@ -19,6 +19,7 @@
             <th>Subject</th>
             <th>Status</th>
             <th>Uploaded By</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -31,6 +32,22 @@
         <td>{{ resource.subject }}</td>
         <td>{{ resource.status }}</td>
         <td>{{ resource.uploaded_by }}</td>
+        <td>
+
+    <a href="/edit-resource/{{ resource.id }}/"
+       class="btn btn-warning btn-sm">
+
+       Edit
+
+    </a>
+    <a href="/delete-resource/{{ resource.id }}/"
+   class="btn btn-danger btn-sm">
+
+   Delete
+
+</a>
+
+</td>
     </tr>
 
     {% endfor %}
