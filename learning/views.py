@@ -139,4 +139,24 @@ def resources(request):
             'resources': resources
         }
     )
+def admin_resources(request):
+
+    resources = Resource.objects.all()
+
+    return render(
+        request,
+        'learning/admin_resources.html',
+        {
+            'resources': resources
+        }
+    )
+def approve_resource(request, resource_id):
+
+    resource = Resource.objects.get(id=resource_id)
+
+    resource.status = 'approved'
+
+    resource.save()
+
+    return redirect('/admin-resources/')
 from .models import User, Resource

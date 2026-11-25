@@ -13,22 +13,26 @@
 <a href="/logout/" class="btn btn-danger">
     Logout
     </a>
-<a href="/upload-resource/"
-   class="btn btn-success">
 
+{% if role == "Teacher" %}
+
+<a href="/upload-resource/" class="btn btn-success">
    Upload Resource
-
 </a>
-<a href="/my-resources/"
-   class="btn btn-primary">
 
+<a href="/my-resources/" class="btn btn-primary">
    My Resources
-
 </a>
-<a href="/resources/"
-   class="btn btn-info">
 
+{% endif %}
+
+<a href="/resources/" class="btn btn-info">
     Browse Resources
+</a>
+<a href="/admin-resources/"
+   class="btn btn-warning">
+
+    Admin Panel
 
 </a>
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resource Approval</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <h2>Resource Approval Panel</h2>
+
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Status</th>
+<th>Action</th>
+        </tr>
+
+        {% for resource in resources %}
+
+        <tr>
+
+            <td>{{ resource.title }}</td>
+
+            <td>{{ resource.subject }}</td>
+
+            <td>{{ resource.status }}</td>
+
+<td>
+    <a href="/approve-resource/{{ resource.id }}/"
+       class="btn btn-success">
+
+        Approve
+
+    </a>
+</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

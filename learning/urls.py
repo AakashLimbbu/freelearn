@@ -22,7 +22,15 @@ urlpatterns = [
     views.resources,
     name='resources'
 ),
-
-
+path(
+    'admin-resources/',
+    views.admin_resources,
+    name='admin-resources'
+),
+path(
+    'approve-resource/<int:resource_id>/',
+    views.approve_resource,
+    name='approve-resource'
+),
 ]
 
