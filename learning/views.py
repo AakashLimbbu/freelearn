@@ -128,16 +128,22 @@ def my_resources(request):
     )
 def resources(request):
 
+    search = request.GET.get('search')
+
     resources = Resource.objects.filter(
         status='approved'
     )
 
+    if search:
+
+        resources = resources.filter(
+            title__icontains=search
+        )
+
     return render(
         request,
         'learning/resources.html',
-        {
-            'resources': resources
-        }
+        {'resources': resources}
     )
 def admin_resources(request):
 
