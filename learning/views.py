@@ -95,16 +95,16 @@ def upload_resource(request):
         subject = request.POST.get('subject')
         category = request.POST.get('category')
         description = request.POST.get('description')
-        file_link = request.POST.get('file_link')
+        resource_file = request.FILES.get('resource_file')
 
         Resource.objects.create(
-            title=title,
-            subject=subject,
-            category=category,
-            description=description,
-            file_link=file_link,
-            uploaded_by=request.session.get('user_name')
-        )
+    title=title,
+    subject=subject,
+    category=category,
+    description=description,
+    resource_file=resource_file,
+    uploaded_by=request.session.get('user_name')
+)
 
         return redirect('/dashboard/')
 

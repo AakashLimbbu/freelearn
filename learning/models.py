@@ -28,7 +28,10 @@ class Resource(models.Model):
 
     description = models.TextField()
 
-    file_link = models.CharField(max_length=500)
+    resource_file = models.FileField(
+    upload_to='resources/',
+    default='resources/default.pdf'
+)
 
     status = models.CharField(
         max_length=20,

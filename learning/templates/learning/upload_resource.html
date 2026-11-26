@@ -13,7 +13,7 @@
 
         <h2>Upload Learning Resource</h2>
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
 
             {% csrf_token %}
 
@@ -57,11 +57,12 @@
             </div>
 
             <div class="mb-3">
-                <label>File Link</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    name="file_link">
+                <label>Upload PDF</label>
+
+<input
+    type="file"
+    class="form-control"
+    name="resource_file">
             </div>
 
             <button class="btn btn-success">
